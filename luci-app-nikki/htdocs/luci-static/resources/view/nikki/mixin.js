@@ -102,11 +102,11 @@ return view.extend({
 
         o = s.taboption('external_control', form.Value, 'ui_url', _('UI Url'));
         o.placeholder = _('Unmodified');
-        o.value('https://github.com/Zephyruso/zashboard/releases/latest/download/dist-cdn-fonts.zip', 'Zashboard (CDN Fonts)');
-        o.value('https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip', 'Zashboard');
-        o.value('https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip', 'MetaCubeXD');
-        o.value('https://github.com/MetaCubeX/Yacd-meta/archive/refs/heads/gh-pages.zip', 'YACD');
-        o.value('https://github.com/MetaCubeX/Razord-meta/archive/refs/heads/gh-pages.zip', 'Razord');
+        o.value('https://gh.2026178.xyz/Zephyruso/zashboard/releases/latest/download/dist-cdn-fonts.zip', 'Zashboard (CDN Fonts)');
+        o.value('https://gh.2026178.xyz/Zephyruso/zashboard/releases/latest/download/dist.zip', 'Zashboard');
+        o.value('https://gh.2026178.xyz/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip', 'MetaCubeXD');
+        o.value('https://gh.2026178.xyz/MetaCubeX/Yacd-meta/archive/refs/heads/gh-pages.zip', 'YACD');
+        o.value('https://gh.2026178.xyz/MetaCubeX/Razord-meta/archive/refs/heads/gh-pages.zip', 'Razord');
 
         o = s.taboption('external_control', form.Value, 'api_listen', _('API Listen'));
         o.datatype = 'ipaddrport(1)';
