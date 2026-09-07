@@ -3,74 +3,26 @@
 # 可在 LuCI -> Nikki -> 配置编辑器 中修改，修改后在 “App Config -> Choose Profile” 中选择 File:default.yaml
 # 注意：本文件会与 LuCI 的 Mixin 配置合并后生成运行配置 /etc/nikki/run/config.yaml
 
-# 在此添加你的代理服务器（proxies），示例如下（按需取消注释并修改）：
-# proxies:
-#   - name: "example-ss"
-#     type: vless
-#     server: "server.example.com"
-#     port: 443
-#     uuid: "uuid"
-#     tls: true
-#     udp: true
-#     servername: "server.example.com"
-#     client-fingerprint: "chrome"
-#     encryption: ""
-#     alpn:
-#       - h2
-#       - http/1.1
-#     network: ws
-#     ws-opts:
-#       path: "/"
-#       v2ray-http-upgrade: true
-#       v2ray-http-upgrade-fast-open: true
-#       headers:
-#         Host: "server.example.com"
+# 代理服务器（proxies）：在此添加你的节点，字段写法参考 mihomo 文档
+proxies: []
 
-  # ---------- VLESS (Reality / xtls-rprx-vision) ----------
-  # - name: "VLESS-Reality-节点1"
-  #   type: vless
-  #   server: <服务器地址或域名>
-  #   port: 443
-  #   uuid: <UUID>
-  #   tls: true
-  #   servername: <SNI>
-  #   flow: xtls-rprx-vision
-  #   reality-opts:
-  #     public-key: <Reality 公钥>
-  #     short-id: <short-id>
-
-  # ---------- Trojan ----------
-  # - name: "Trojan-节点1"
-  #   type: trojan
-  #   server: <服务器地址或域名>
-  #   port: 443
-  #   password: <密码>
-  #   sni: <域名>
-  #   alpn:
-  #     - h2
-  #     - http/1.1
-
-  # ---------- Shadowsocks ----------
-  # - name: "SS-节点1"
-  #   type: ss
-  #   server: <服务器地址或域名>
-  #   port: 8388
-  #   cipher: aes-256-gcm
-  #   password: <密码>
-
-# 代理组
+# 代理组：PROXY 为手动选择组，在 proxies 中填入上面的节点名称即可切换
 proxy-groups:
   - name: "PROXY"
     type: "select"
-    proxies:
-      - "DIRECT"
+    proxies: []
 
 # ============================================================
-# 分流规则：广告拦截 → 国内直连 → 其余走代理
-# 依赖 geoip.dat / geosite.dat（Nikki 首次启动会自动下载）
+# 分流规则（自上而下依次匹配）
+#   广告拦截 → TikTok 走代理 → Apple / 国内域名 / 局域网 / 国内 IP 直连 → 其余走代理
+# RULE-SET 引用的规则集由 /etc/nikki/mixin.yaml 中的 rule-providers 定义，
+# 首次启动会自动下载 category-ads-all / tiktok / apple / cn_domain / cn_ip
 # ============================================================
 rules:
-  - GEOSITE,category-ads-all,REJECT
-  - GEOIP,CN,DIRECT
-  - GEOSITE,cn,DIRECT
+  - RULE-SET,category-ads-all,REJECT
+  - RULE-SET,tiktok,PROXY
+  - RULE-SET,apple,DIRECT
+  - RULE-SET,cn_domain,DIRECT
+  - GEOIP,lan,DIRECT,no-resolve
+  - RULE-SET,cn_ip,DIRECT
   - MATCH,PROXY
