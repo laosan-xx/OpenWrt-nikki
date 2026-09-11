@@ -25,9 +25,14 @@
 #     type: select
 #     proxies:
 #       - PROXY
-# nikki-rules: # prepend rules
-#   - DOMAIN,direct.example.com,DIRECT
-#   - DOMAIN-SUFFIX,proxy.example.com,PROXY
+nikki-rules: # prepend rules
+  - DOMAIN-SUFFIX,todesk.com,DIRECT
+  - DOMAIN-SUFFIX,todesk.cn,DIRECT
+  - DOMAIN-SUFFIX,oray.com,DIRECT
+  - DOMAIN-SUFFIX,sunlogin.com,DIRECT
+  - DOMAIN-KEYWORD,todesk,DIRECT
+  - DOMAIN-KEYWORD,oray,DIRECT
+  - DOMAIN-KEYWORD,sunlogin,DIRECT
 rule-providers:
   category-ads-all:
     type: http
