@@ -25,7 +25,8 @@
 #     type: select
 #     proxies:
 #       - PROXY
-nikki-rules: # prepend rules
+global-client-fingerprint: chrome
+nikki-rules:
   - DOMAIN-SUFFIX,todesk.com,DIRECT
   - DOMAIN-SUFFIX,todesk.cn,DIRECT
   - DOMAIN-SUFFIX,oray.com,DIRECT
