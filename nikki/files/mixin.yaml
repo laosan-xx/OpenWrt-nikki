@@ -38,7 +38,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: "https://gh.2026178.xyz/raw/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs"
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs"
     path: ./rules/category-ads-all.mrs
     interval: 604800
 
@@ -46,7 +46,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: "https://gh.2026178.xyz/raw/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"
     path: ./rules/tiktok.mrs
     interval: 604800
 
@@ -54,7 +54,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: "https://gh.2026178.xyz/raw/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"
     path: ./rules/apple.mrs
     interval: 604800
 
@@ -62,7 +62,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: "https://gh.2026178.xyz/raw/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"
     path: ./rules/cn_domain.mrs
     interval: 604800
 
@@ -70,6 +70,6 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: mrs
-    url: "https://gh.2026178.xyz/raw/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
     path: ./rules/cn_ip.mrs
     interval: 604800
