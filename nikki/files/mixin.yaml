@@ -30,6 +30,8 @@ nikki-rules:
   - DOMAIN-SUFFIX,todesk.cn,DIRECT
   - DOMAIN-SUFFIX,oray.com,DIRECT
   - DOMAIN-SUFFIX,sunlogin.com,DIRECT
+  - DOMAIN-SUFFIX,uuyc.163.com,DIRECT
+  - DOMAIN-SUFFIX,nrd.nie.163.com,DIRECT
   - DOMAIN-KEYWORD,todesk,DIRECT
   - DOMAIN-KEYWORD,oray,DIRECT
   - DOMAIN-KEYWORD,sunlogin,DIRECT
